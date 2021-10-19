@@ -11,12 +11,25 @@ class weatherObject {
         this.tempMin = tempMin;
         this.location = location;
         console.log(this);
-        this.domUpdateWeatherIcon(icon);
+        this.domUpdateWeatherIcon();
+        this.domUpdateInfo();
     };
-    domUpdateWeatherIcon(icon){
+    domUpdateWeatherIcon(){
         const weatherIconLocation = document.querySelector('#weatherIcon');
-        weatherIconLocation.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
+        weatherIconLocation.src = `https://openweathermap.org/img/wn/${this.icon}@2x.png`
         
+    }
+    domUpdateInfo(){
+        const locationCon = document.querySelector('#locationCon');
+        const tempCon = document.querySelector('#temp');
+        const feelsLikeCon = document.querySelector('#feelsLike');
+        const descriptionCon = document.querySelector('#description');
+
+        locationCon.innerText = this.location;
+        tempCon.innerText = this.temp;
+        feelsLikeCon.innerText = this.feelsLike;
+        descriptionCon.innerText = this.description;
+
     }
 };
 

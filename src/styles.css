@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    background-image: url('./Photos/background.jpg');
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+#weatherCardContainer {
+    display: flex;
+    height: 50vh;
+    width: 50vw;
+    background-color: rgba(12, 12, 12, 0.4);
+    justify-content: center;
+    align-content: center;
+    margin: 25px;
+    color: white;
+    text-shadow: 3px 3px 2px black;
+    box-shadow: 5px 5px 5px rgb(164, 164, 253);
+}
+
+#weatherCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "location location iconImage"
+    "temp feelsLike description";
+    justify-content: center;
+    align-content: center;
+}
+#locationCon, #icon, #temp, #feelsLike, #description,
+#tempMin, #tempMax, #humidity, #tempLabel, #temp, #feelsLikeLabel, #feelsLike{
+    justify-self: center;
+    align-self: center;
+}
+#locationCon {
+    grid-area: location;
+}
+#icon {
+    grid-area: iconImage;
+}
+#temp {
+    grid-area: temp;
+}
+#feelsLike {
+    grid-area: feelsLike;
+}
+#description{
+    grid-area: description;
+}
+#tempMin{
+    grid-area: tempMin;
+}
+#tempMax{
+    grid-area: tempMax;
+}
+#humidity{
+    grid-area: humidity;
+}
+#feelsLikeCon, #tempCon {
+    display:flex;
+    flex-direction: column;
+}
+#tempLabel, #temp, #feelsLikeLabel, #feelsLike{
+    margin: 5px;
+    row-gap: 10px;
+}
