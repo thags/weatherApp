@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Gif</title>
 </head>
 <body>
-    <div id='content'></div>
+    <div id='content'>
+        <div id="inputForm">
+            <form>
+                <label for="location">City Name</label>
+                <input type="text" id="location" name="location">
+                <input class="inputButton" type="button" value="Submit">
+            </form>
+        </div>
+
+        <div id='weatherCardContainer'>
+            <div id='weatherCard'>
+                <div id='location'>Los Angeles</div>
+                <div id='icon'><img id="weatherIcon" src="#" alt="Icon" /></div>
+                <div id='temp'>
+                    <div class="tempLabel">Current Temperature</div>
+                    <div class="tempCurrent">56</div>
+                </div>
+                <div id='feelsLike'>54.5</div>
+                <div id='description'>smoke</div>
+                <div id='tempMin'>49.98</div>
+                <div id='tempMax'>61</div>
+                <div id='humidity'>74</div>
+            </div>
+        </div>
+    </div>
     <script src='bundle.js'></script>
 </body>
 </html>
