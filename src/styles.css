@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
 body{
     background-image: url('./Photos/background.jpg');
     display: flex;
@@ -37,6 +38,8 @@ body{
 }
 #locationCon {
     grid-area: location;
+    display:flex;
+    column-gap: 10px;
 }
 #icon {
     grid-area: iconImage;
@@ -66,4 +69,7 @@ body{
 #tempLabel, #temp, #feelsLikeLabel, #feelsLike{
     margin: 5px;
     row-gap: 10px;
+}
+#searchSpan:hover {
+    cursor: pointer;
 }

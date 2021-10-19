@@ -13,14 +13,15 @@ class weatherObject {
         console.log(this);
         this.domUpdateWeatherIcon();
         this.domUpdateInfo();
+        this.weatherGif();
     };
-    domUpdateWeatherIcon(){
+    async domUpdateWeatherIcon(){
         const weatherIconLocation = document.querySelector('#weatherIcon');
         weatherIconLocation.src = `https://openweathermap.org/img/wn/${this.icon}@2x.png`
         
     }
     domUpdateInfo(){
-        const locationCon = document.querySelector('#locationCon');
+        const locationCon = document.querySelector('#locationName');
         const tempCon = document.querySelector('#temp');
         const feelsLikeCon = document.querySelector('#feelsLike');
         const descriptionCon = document.querySelector('#description');
