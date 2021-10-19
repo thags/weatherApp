@@ -73,3 +73,9 @@ body{
 #searchSpan:hover {
     cursor: pointer;
 }
+#inputForm{
+    display: none;
+}
+#locationName{
+    display: flex;
+}

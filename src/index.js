@@ -10,10 +10,8 @@ class weatherObject {
         this.tempMax = tempMax;
         this.tempMin = tempMin;
         this.location = location;
-        console.log(this);
         this.domUpdateWeatherIcon();
         this.domUpdateInfo();
-        this.weatherGif();
     };
     async domUpdateWeatherIcon(){
         const weatherIconLocation = document.querySelector('#weatherIcon');
@@ -56,7 +54,31 @@ async function processWeatherFetch(weather){
 function submitButtonPressed(){
     const input = document.querySelector('#location');
     weatherAPICall(input.value);
+    switchInput();
+}
+
+function searchButtonPressed(){
+    const locationName = document.querySelector('#locationName').style.display;
+    if (locationName === "" || locationName === "flex"){
+        switchInput();
+    };
+};
+
+
+function switchInput(){
+    const inputForm = document.querySelector('#inputForm');
+    const locationName = document.querySelector('#locationName');
+    const inputDisplay = inputForm.style.display;
+    if (inputDisplay === "" || inputDisplay === "none"){
+        inputForm.style.display = "flex";
+        locationName.style.display = "none";
+        console.log(inputForm.style.display)
+    } else if (inputDisplay === "flex"){
+        inputForm.style.display = "none";
+        locationName.style.display = "flex";
+    }
 }
 
 document.querySelector('.inputButton').addEventListener('click', submitButtonPressed);
+document.querySelector('#searchSpan').addEventListener('click', searchButtonPressed);
 const fweather = weatherAPICall("Los Angeles", "imperial");
