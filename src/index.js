@@ -1,14 +1,41 @@
-function weatherAPICall(location){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=44568c1fa787c46f7595556abadcb26f`, {mode: 'cors'})
+class weatherObject {
+    constructor(description, icon, feelsLike, humidity, temp, tempMax, tempMin, location){
+        this.description = description;
+        this.icon = icon;
+        this.feelsLike = feelsLike;
+        this.humidity = humidity;
+        this.temp = temp;
+        this.tempMax = tempMax;
+        this.tempMin = tempMin;
+        this.location = location;
+        console.log(this);
+    };
+
+};
+
+function weatherAPICall(location, units="imperial"){
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=44568c1fa787c46f7595556abadcb26f&units=${units}`, {mode: 'cors'})
     .then(response => response.json())
     .then(data => processWeatherFetch(data));
 }
 
 async function processWeatherFetch(weather){
-    let temp = weather.main.temp;
+    const description = weather.weather[0].description;
+    const icon = weather.weather[0].icon;
+    const feelsLike = weather.main.feels_like;
+    const humidity = weather.main.humidity;
+    const temp = weather.main.temp;
+    const tempMax = weather.main.temp_max;
+    const tempMin = weather.main.temp_min;
+    const location = weather.name;
 
-    console.log(temp)
+    new weatherObject(description, icon, feelsLike, humidity, temp, tempMax, tempMin, location);
 }
 
+function submitButtonPressed(){
+    const input = document.querySelector('#location');
+    weatherAPICall(input.value, "imperial");
+}
 
-const fweather = weatherAPICall("lenexa");
+document.querySelector('.inputButton').addEventListener('click', submitButtonPressed);
+const fweather = weatherAPICall("Los Angeles", "imperial");
