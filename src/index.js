@@ -1,3 +1,5 @@
+import "./styles.css";
+
 class weatherObject {
     constructor(description, icon, feelsLike, humidity, temp, tempMax, tempMin, location){
         this.description = description;
@@ -9,8 +11,13 @@ class weatherObject {
         this.tempMin = tempMin;
         this.location = location;
         console.log(this);
+        this.domUpdateWeatherIcon(icon);
     };
-
+    domUpdateWeatherIcon(icon){
+        const weatherIconLocation = document.querySelector('#weatherIcon');
+        weatherIconLocation.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
+        
+    }
 };
 
 function weatherAPICall(location, units="imperial"){
@@ -34,7 +41,7 @@ async function processWeatherFetch(weather){
 
 function submitButtonPressed(){
     const input = document.querySelector('#location');
-    weatherAPICall(input.value, "imperial");
+    weatherAPICall(input.value);
 }
 
 document.querySelector('.inputButton').addEventListener('click', submitButtonPressed);
